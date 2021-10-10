@@ -12,7 +12,9 @@ public class TicTacToeGame {
         System.out.println("Welcome to Tic-Tac-Toe game");
         createBoard();
         System.out.println("Choose a letter 'x' or 'o' :");
-        int chosenLetter = scanner.next().charAt(0);
+        char chosenLetter = scanner.next().charAt(0);
+        chooseLetter(chosenLetter);
+        showBoard(board);
     }
 
     /*  Empty board generation method
@@ -22,7 +24,7 @@ public class TicTacToeGame {
     */
     public static void createBoard() {
         board = new char[10];
-        for (int i = 1; i < board.length; i++) {
+        for (int i = 0; i < board.length; i++) {
             board[i] = ' ';
         }
     }
@@ -40,6 +42,12 @@ public class TicTacToeGame {
             System.out.println("computer is assigned 'x' ");
         } else
             System.out.println("Choose a valid letter");
+    }
+
+    public static void showBoard(char[] board) {
+        for (int i = 0; i < board.length-1; i = ++i + 2) {
+            System.out.println(board[i] + " | " + board[i + 1] + " | " + board[i + 2]);
+        }
     }
 }
 
